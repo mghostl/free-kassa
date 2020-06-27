@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alfa_battle
+    driver-class-name: org.postgresql.Driver
+    username: alfa_battle
+    password: qwe123
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  h2:
+    console:
+      enabled: false
+  security:
+    user:
+      name: admin
+      password: $)<WV.;m7df:8$Dp{L-v\t
+  boot:
+    admin:
+      client:
+        instance:
+          metadata:
+            tags:
+              environment: prod
