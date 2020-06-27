@@ -1,7 +1,11 @@
 
 spring:
   liquibase:
-    enabled: true
+    enabled: false
+  security:
+    user:
+      name: admin
+      password: admin
   application:
     admin:
       enabled: true
