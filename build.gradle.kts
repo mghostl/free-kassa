@@ -8,9 +8,11 @@ plugins {
     kotlin("plugin.jpa") version "1.3.61"
 }
 
+val appName = "cassa"
+val appVer by lazy { "0.0.2" }
 // apply(from = "dependencies.gradle.kts", to = versions)
 group = "com.mghostl"
-version = "0.0.1-SNAPSHOT"
+version = appVer
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 object Version {
@@ -79,5 +81,15 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
+    }
+}
+
+springBoot {
+    buildInfo {
+        properties {
+            artifact = "$appName-$appVer.jar"
+            version = appVer
+            name = appName
+        }
     }
 }
