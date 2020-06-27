@@ -1,5 +1,6 @@
 package com.mghostl.alfaBattle.freeCassa.model
 
+import com.mghostl.alfaBattle.freeCassa.dto.BranchDTO
 import java.math.BigInteger
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -14,4 +15,8 @@ data class Branch (
     val lon: Double,
     val lat: Double,
     val address: String
-): Response()
+) {
+    fun toDTO(): BranchDTO =
+        BranchDTO(id, title, lon, lat, address, null)
+}
+// todo add mapstruct

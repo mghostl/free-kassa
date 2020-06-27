@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RequestPart
 import org.springframework.web.bind.annotation.RestController
 import java.math.BigInteger
@@ -23,4 +24,10 @@ class BranchController (
         val branch = branchService.getBranch(branchId)?: return ResponseEntity(ErrorResponse("branch not found"), HttpStatus.NOT_FOUND)
         return ResponseEntity.ok(branch)
     }
+
+    @GetMapping
+    fun getBranch( @RequestParam lat: Double, @RequestParam lon: Double): ResponseEntity<Response> {
+        return ResponseEntity.ok(branchService.getBranch(lon, lat))
+    }
+
 }
